@@ -2,6 +2,7 @@
 TODO: descrição do software
 
 
+```
                       +--------+         +------------+
                  +--->+revista |         |artigos     +------+
                  |    |A       +-------->+exportado   |      |
@@ -14,7 +15,7 @@ TODO: descrição do software
                  +--->+revista +-------->+artigos     |       |
                       |C       |         |exportados  +-------+
                       +--------+         +------------+
-                   
+```                   
 **rascunhos**
 - recebe palavras chaves como entrada
 - pode receber autenticaçao para utilização de base de dados não livres
