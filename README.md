@@ -3,18 +3,27 @@ TODO: descrição do software
 
 
 ```
-                      +--------+         +------------+
-                 +--->+revista |         |artigos     +------+
-                 |    |A       +-------->+exportado   |      |
-                 |    +--------+         +------------+      v
-+------------+   |    +--------+         +------------+  +---+-----+
-| Termo de   +------->+revista +-------->+artigos     +->+Mendeley |
-| busca      |   |    |B       |         |exportados  |  |         |
-+------------+   |    +--------+         +------------+  +----+----+
-                 |    +--------+         +------------+       ^
-                 +--->+revista +-------->+artigos     |       |
-                      |C       |         |exportados  +-------+
-                      +--------+         +------------+
+
+
+
+
+
+                                                    +--------+         +------------+
+                                               +--->+revista |         |artigos     +------+
+                                               |    |A       +-------->+exportado   |      |
+     +------------+      +--------------+      |    +--------+         +------------+      v
+     | Termo de   +----->+autenticação  |      |    +--------+         +------------+  +---------+
+     | busca      |      |(opcional)    +---------->+revista +-------->+artigos     +->+Mendeley |
+     +------------+      +--------------+      |    |B       |         |exportados  |  |         |
+                                               |    +--------+         +------------+  +---------+
+                                               |    +--------+         +------------+       ^
+                                               +--->+revista +-------->+artigos     |       |
+                                                    |C       |         |exportados  +-------+
+                                                    +--------+         +------------+
+
+
+
+
 ```                   
 **rascunhos**
 - recebe termo de busca como entrada (inicialmente focaremos em palavras chaves)
