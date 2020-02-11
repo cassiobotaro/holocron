@@ -9,16 +9,16 @@ TODO: descrição do software
 
 
                                                     +--------+         +------------+
-                                               +--->+revista |         |artigos     +------+
-                                               |    |A       +-------->+exportado   |      |
+                                               +--->+base de |         |artigos     +------+
+                                               |    |dados A +-------->+exportado   |      |
      +------------+      +--------------+      |    +--------+         +------------+      v
      | Termo de   +----->+autenticação  |      |    +--------+         +------------+  +---------+
-     | busca      |      |(opcional)    +---------->+revista +-------->+artigos     +->+Mendeley |
-     +------------+      +--------------+      |    |B       |         |exportados  |  |         |
+     | busca      |      |(opcional)    +---------->+base de +-------->+artigos     +->+Mendeley |
+     +------------+      +--------------+      |    |dados B |         |exportados  |  |         |
                                                |    +--------+         +------------+  +---------+
                                                |    +--------+         +------------+       ^
-                                               +--->+revista +-------->+artigos     |       |
-                                                    |C       |         |exportados  +-------+
+                                               +--->+base de +-------->+artigos     |       |
+                                                    |dados C |         |exportados  +-------+
                                                     +--------+         +------------+
 
 
