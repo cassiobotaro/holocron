@@ -5,8 +5,10 @@
 
 **Subárea de Conhecimento:** Segmentação da área de conhecimento.
 
-**Base de Dados:** Lista dos periódicos que atendem à Subárea de Conhecimento. 
+**Base de Dados:** Lista dos periódicos que atendem à Subárea de Conhecimento.
 
 **Aquivo .ris:** Formato de arquivo aceito por gerenciadores de referência como Mendeley.
 
-**Extrator:** 
+**Extrator:** Agente responsável por extrair as referências de uma base de dados.
+
+:back: [Voltar](README.md)

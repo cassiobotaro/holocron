@@ -24,7 +24,10 @@ TODO: descrição do software
 
 
 
-```                   
+```
+
+Um vocabulário foi definido para facilitar a comunição e pode ser encontrado [aqui](vocabulario.md).
+
 **rascunhos**
 - recebe termo de busca como entrada (inicialmente focaremos em palavras chaves)
 - pode receber autenticação para utilização de base de dados não livres
