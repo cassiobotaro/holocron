@@ -1,4 +1,9 @@
-# :package: Holocron
+# Holocron
+
+<p align="center">
+  <img style="float: right;" src="assets/holocron.png" alt="Holocron logo"/>
+</p>
+
 TODO: descrição do software
 
 
