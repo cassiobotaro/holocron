@@ -1,8 +1,9 @@
-# Holocron
 
 <p align="center">
   <img style="float: right;" src="assets/holocron.png" alt="Holocron logo"/>
 </p>
+
+# Holocron
 
 Extração de referências em bases de dados à partir de termo de busca
 
