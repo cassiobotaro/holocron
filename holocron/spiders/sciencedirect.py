@@ -7,8 +7,8 @@ class SciencedirectSpider(scrapy.Spider):
     name = "sciencedirect"
     allowed_domains = ["sciencedirect.com"]
     start_urls = [
-        "https://www.sciencedirect.com/search/advanced?"
-        "qs=water%20AND%20leak%2A%20AND%20geophysic%2A&show=100"
+        "https://www.sciencedirect.com/search?"
+        "qs=water%20AND%20leak%20AND%20geophysic&show=100"
     ]
 
     def save_article(self, response):
