@@ -11,11 +11,22 @@ Um vocabulário foi definido para facilitar a comunição e pode ser encontrado 
 
 ## Instalação
 
-TODO
+Clone o repositório disponível no github utilizando o comando:
+```git clone https://github.com/cassiobotaro/holocron.git
+
+Dentro da pasta Holocron, crie o seu ambiente virtual de trabalho:
+```python -m venv .venv
+
+Use o gerenciador de bibliotecas pip para instalar a biblioteca scrapy:
+`python -m pip install scrapy`
+
+Caso você tenha problemas no Windows, será necessário instalar o Visual Studio CPP Build Tools – Desmarcar todas as opções e deixar marcada apenas a opção “Ferramentas de Build do C++”
 
 ## Como executar?
 
-TODO
+O Holocron é executado com os comandos:
+ ```scrapy crawl "buscador.periodicos.capes"
+ ```scrapy crawl sciencedirect
 
 TODO: termo de busca nas aranhas deve ser dinâmico
 
