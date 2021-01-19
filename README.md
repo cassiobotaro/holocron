@@ -19,6 +19,9 @@ Dentro da pasta Holocron, crie o seu ambiente virtual de trabalho:
 
 `python -m venv .venv`
 
+Em seguida, ative seu ambiente virtual:
+`.venv\Scripts\activate.bat`
+
 Use o gerenciador de bibliotecas pip para instalar a biblioteca scrapy:
 
 `python -m pip install scrapy`
