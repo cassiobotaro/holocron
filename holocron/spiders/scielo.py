@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+import scrapy
+from urllib.parse import urlencode
+from pathlib import Path
+import uuid
+import math
+
+
+class ScieloSpider(scrapy.Spider):
+    name = "scielo"
+    allowed_domains = ["search.scielo.org"]
+
+    def start_requests(self):
+        parameters = urlencode(
+            {
+                "q": getattr(self, "query", ""),
+            }
+        )
+        yield scrapy.Request(f"https://search.scielo.org/?{parameters}")
+
+    def parse(self, response):
+        number_of_articles = int(
+            response.css("#TotalHits::text").get().replace(" ", "")
+        )
+        pages = math.ceil(number_of_articles / 50)
+        for page in range(1, pages + 1):
+            parameters = urlencode(
+                {
+                    "q": getattr(self, "query", ""),
+                    "from": (page * 50) + 1,
+                    "output": "ris",
+                    "count": 50,
+                    "page": page,
+                    "format": "summary",
+                }
+            )
+
+            yield response.follow(
+                url=f"/?{parameters}", callback=self.export_ris
+            )
+
+    def export_ris(self, response):
+        file_uuid = uuid.uuid4()
+        Path(f"articles/{file_uuid}.ris").write_bytes(response.body)
