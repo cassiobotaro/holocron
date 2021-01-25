@@ -7,7 +7,7 @@
 
 Extração de referências em bases de dados à partir de termo de busca
 
-Um vocabulário foi definido para facilitar a comunição e pode ser encontrado [aqui](vocabulario.md).
+Um vocabulário foi definido para facilitar a comunicação e pode ser encontrado [aqui](vocabulario.md).
 
 ## Instalação
 
@@ -20,9 +20,9 @@ Dentro da pasta Holocron, crie o seu ambiente virtual de trabalho:
 `python -m venv .venv`
 
 Em seguida, ative seu ambiente virtual:
-`.venv\Scripts\activate.bat`
+`.venv\Scripts\activate.bat` (ou `.venv/bin/activate` no Linux)
 
-Use o gerenciador de bibliotecas pip para instalar a biblioteca scrapy:
+Use o gerenciador de bibliotecas pip para instalar a biblioteca `Scrapy`:
 
 `python -m pip install scrapy`
 
@@ -33,10 +33,10 @@ Caso você tenha problemas no Windows, será necessário instalar o Visual Studi
 O Holocron é executado com os comandos:
 
  `scrapy crawl "buscador.periodicos.capes"`
- 
- `scrapy crawl sciencedirect`
 
-TODO: termo de busca nas aranhas deve ser dinâmico
+ `scrapy crawl sciencedirect -a query="water AND leaks"`
+
+ `scrapy crawl scielo -a query="water AND leaks"`
 
 ```
 
@@ -64,4 +64,4 @@ TODO: termo de busca nas aranhas deve ser dinâmico
 - recebe termo de busca como entrada (inicialmente focaremos em palavras chaves)
 - pode receber autenticação para utilização de base de dados não livres
 - busca revistas de acordo com área de conhecimento
-- faz paginação de artigos(com base em entrada do usuário) em formato exporatável para mendeley
+- faz paginação de artigos(com base em entrada do usuário) em formato exportável para mendeley
