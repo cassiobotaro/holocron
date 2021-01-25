@@ -1,20 +1,24 @@
 # -*- coding: utf-8 -*-
 import uuid
 import scrapy
+from urllib.parse import urlencode
+from pathlib import Path
 
 
 class SciencedirectSpider(scrapy.Spider):
     name = "sciencedirect"
     allowed_domains = ["sciencedirect.com"]
-    start_urls = [
-        "https://www.sciencedirect.com/search?"
-        "qs=water%20AND%20leak%20AND%20geophysic&show=100"
-    ]
+
+    def start_requests(self):
+        parameters = urlencode({"show": 100, "qs": getattr(self, "query", "")})
+        yield scrapy.Request(
+            "https://www.sciencedirect.com/search?"
+            f"{parameters}"
+        )
 
     def save_article(self, response):
         file_uuid = uuid.uuid4()
-        with open(f"articles/{file_uuid}.ris", "w") as f:
-            f.write(response.body.decode("utf-8"))
+        Path(f"articles/{file_uuid}.ris").write_bytes(response.body)
 
     def parse(self, response):
         ids = response.css(".result-item-content h2 a::attr(href)").getall()
