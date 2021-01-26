@@ -27,7 +27,7 @@ class ScieloSpider(scrapy.Spider):
             parameters = urlencode(
                 {
                     "q": getattr(self, "query", ""),
-                    "from": (page * 50) + 1,
+                    "from": (page - 1 * 50) + 1,
                     "output": "ris",
                     "count": 50,
                     "page": page,
