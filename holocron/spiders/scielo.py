@@ -20,7 +20,7 @@ class ScieloSpider(scrapy.Spider):
 
     def parse(self, response):
         number_of_articles = int(
-            response.css("#TotalHits::text").get().replace(" ", "")
+            response.css("#TotalHits::text").get(default="0").replace(" ", "")
         )
         pages = math.ceil(number_of_articles / 50)
         for page in range(1, pages + 1):
