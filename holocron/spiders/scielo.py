@@ -23,21 +23,22 @@ class ScieloSpider(scrapy.Spider):
             response.css("#TotalHits::text").get().replace(" ", "")
         )
         pages = math.ceil(number_of_articles / 50)
+        urls = []
         for page in range(1, pages + 1):
             parameters = urlencode(
                 {
                     "q": getattr(self, "query", ""),
-                    "from": (page - 1 * 50) + 1,
+                    "from": ((page - 1) * 50) + 1,
                     "output": "ris",
                     "count": 50,
                     "page": page,
                     "format": "summary",
                 }
             )
-
-            yield response.follow(
-                url=f"/?{parameters}", callback=self.export_ris
-            )
+            urls.append(f"/?{parameters}")
+        yield from response.follow_all(
+            urls, callback=self.export_ris
+        )
 
     def export_ris(self, response):
         file_uuid = uuid.uuid4()
