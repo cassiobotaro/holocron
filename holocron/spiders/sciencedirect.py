@@ -12,8 +12,7 @@ class SciencedirectSpider(scrapy.Spider):
     def start_requests(self):
         parameters = urlencode({"show": 100, "qs": getattr(self, "query", "")})
         yield scrapy.Request(
-            "https://www.sciencedirect.com/search?"
-            f"{parameters}"
+            f"https://www.sciencedirect.com/search?{parameters}"
         )
 
     def save_article(self, response):
@@ -21,8 +20,9 @@ class SciencedirectSpider(scrapy.Spider):
         Path(f"articles/{file_uuid}.ris").write_bytes(response.body)
 
     def parse(self, response):
-        ids = response.css(".result-item-content h2 a::attr(href)").getall()
-        ids = [id_.split("/")[-1] for id_ in ids]
+        ids = response.css(".result-item-content h2 a::attr(href)").re(
+            "/science/article/pii/(.*)"
+        )
         file_export_url = (
             "https://www.sciencedirect.com/sdfe/arp/cite"
             "?pii={}&format=application%2Fx-research-info-systems"
