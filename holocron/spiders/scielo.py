@@ -36,9 +36,7 @@ class ScieloSpider(scrapy.Spider):
                 }
             )
             urls.append(f"/?{parameters}")
-        yield from response.follow_all(
-            urls, callback=self.export_ris
-        )
+        yield from response.follow_all(urls, callback=self.export_ris)
 
     def export_ris(self, response):
         file_uuid = uuid.uuid4()
