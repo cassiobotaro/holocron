@@ -11,7 +11,7 @@ Um vocabulário foi definido para facilitar a comunicação e pode ser encontrad
 
 ## Instalação
 
-Clone o repositório disponível no github utilizando o comando:
+Clone o repositório disponível no Github utilizando o comando:
 
 `git clone https://github.com/cassiobotaro/holocron.git`
 
@@ -27,6 +27,10 @@ Use o gerenciador de bibliotecas pip para instalar a biblioteca `Scrapy`:
 `python -m pip install scrapy`
 
 Caso você tenha problemas no Windows, será necessário instalar o Visual Studio CPP Build Tools – Desmarcar todas as opções e deixar marcada apenas a opção “Ferramentas de Build do C++”
+
+Para fazer buscas na base Science Direct, será necessária a utilização do `scrapy-splash` e um servidor rodando o serviço `splash`.
+
+A instalação pode ser feita através do comando `python -m pip install scrapy-splash` e para ter o servidor splash rodando, podemos utilizar o [docker](https://docs.docker.com/get-docker/) e o comando `docker run -p 8050:8050 -d scrapinghub/splash`.
 
 ## Como executar?
 
@@ -58,10 +62,3 @@ O Holocron é executado com os comandos:
 
 
 ```
-
-
-**rascunhos**
-- recebe termo de busca como entrada (inicialmente focaremos em palavras chaves)
-- pode receber autenticação para utilização de base de dados não livres
-- busca revistas de acordo com área de conhecimento
-- faz paginação de artigos(com base em entrada do usuário) em formato exportável para mendeley

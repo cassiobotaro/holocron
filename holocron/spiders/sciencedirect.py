@@ -3,6 +3,7 @@ import uuid
 import scrapy
 from urllib.parse import urlencode
 from pathlib import Path
+from scrapy_splash import SplashRequest
 
 
 class SciencedirectSpider(scrapy.Spider):
@@ -11,7 +12,7 @@ class SciencedirectSpider(scrapy.Spider):
 
     def start_requests(self):
         parameters = urlencode({"show": 100, "qs": getattr(self, "query", "")})
-        yield scrapy.Request(
+        yield SplashRequest(
             f"https://www.sciencedirect.com/search?{parameters}"
         )
 
@@ -36,4 +37,6 @@ class SciencedirectSpider(scrapy.Spider):
             "//a[@data-aa-name='srp-next-page']/@href"
         ).get()
         if next_page:
-            yield response.follow(url=next_page, callback=self.parse)
+            yield SplashRequest(
+                response.urljoin(next_page), callback=self.parse
+            )
